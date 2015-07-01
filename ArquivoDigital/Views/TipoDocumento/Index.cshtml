@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.TipoDocumento>
+
+@{
+    ViewBag.Title = "Tipo Documento";
+}
+
+<h2>Tipo Documento</h2>
+
+<p>
+    @Html.ActionLink("Novo Tipo Documento", "Edit", new { id = 0})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Descrição</b>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdTipoDocumento }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.IdTipoDocumento }, new { @onclick = "return confirm('Confirma Exclusão?');" })
+        </td>
+    </tr>
+}
+
+</table>

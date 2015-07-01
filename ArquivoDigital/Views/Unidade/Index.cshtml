@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.Unidade>
+
+@{
+    ViewBag.Title = "Unidades";
+}
+
+<h2>Unidades</h2>
+
+<p>
+    @Html.ActionLink("Nova Unidade", "Edit", new { id = 0})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Unidade</b>
+        </th>
+        <th>
+            <b>Logradouro</b>
+        </th>
+        <th>
+            <b>Cidade</b>
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeUnidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco.Logradouro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco.Cidade.NomeCidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco.Cidade.UnidadeFederativa.NomeEstado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdUnidade }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdUnidade }, new { @onclick = "return confirm('Confirma Exclusão?');" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Owin.Security.Facebook.pt-br</id>
+    <version>2.0.0</version>
+    <title>Recursos pt-br do Microsoft Owin Security Facebook</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_PTB.htm</licenseUrl>
+    <projectUrl>http://katanaproject.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Este pacote contém assemblies de satélite pt-br para Microsoft Owin Security Facebook</description>
+    <summary>Recursos pt-br para o pacote Microsoft.Owin.Security.Facebook.</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>pt-br</language>
+    <tags>OWIN</tags>
+    <dependencies>
+      <dependency id="Microsoft.Owin.Security.Facebook" version="[2.0.0]" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.Razor.pt-br</id>
+    <version>3.0.0</version>
+    <title>Recursos em Português-BR Microsoft ASP.NET Razor</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_PTB.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-pages</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Este pacote contém os assemblies satélite em português para o ASP.NET Razor.</description>
+    <summary>Recursos em português para o pacote do Microsoft.AspNet.Razor</summary>
+    <copyright>© Microsoft Corporation. Todos os direitos reservados.</copyright>
+    <language>pt-br</language>
+    <tags>Microsoft AspNet WebPages AspNetWebPages Razor</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Razor" version="[3.0.0]" />
+    </dependencies>
+  </metadata>
+</package>

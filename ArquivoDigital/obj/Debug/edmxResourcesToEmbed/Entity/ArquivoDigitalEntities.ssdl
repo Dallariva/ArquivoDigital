@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArquivoDigitalTCCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Autorizacao">
+    <Key>
+      <PropertyRef Name="IdAutorizacao" />
+      <PropertyRef Name="IdPessoaUsuario" />
+      <PropertyRef Name="IdDocumento" />
+    </Key>
+    <Property Name="IdAutorizacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPessoaUsuario" Type="int" Nullable="false" />
+    <Property Name="IdDocumento" Type="int" Nullable="false" />
+    <Property Name="DataInicio" Type="datetime" Nullable="false" />
+    <Property Name="DataFim" Type="datetime" Nullable="false" />
+    <Property Name="IdTipoAutorizacao" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="IdCidade" />
+    </Key>
+    <Property Name="IdCidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeCidade" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UF" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documento">
+    <Key>
+      <PropertyRef Name="IdDocumento" />
+    </Key>
+    <Property Name="IdDocumento" Type="int" Nullable="false" />
+    <Property Name="IdTipoDocumento" Type="int" Nullable="false" />
+    <Property Name="IdUnidade" Type="int" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+    <Property Name="IdPessoaUsuario" Type="int" Nullable="false" />
+    <Property Name="NomeDocumento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ArquivoBlob" Type="varbinary" MaxLength="2000" Nullable="false" />
+    <Property Name="Arquivo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+    <Property Name="Observacao" Type="text" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Logradouro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Complemento" Type="varchar" MaxLength="50" />
+    <Property Name="Numero" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CEP" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Bairro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdCidade" Type="int" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Telefone" Type="varchar" MaxLength="20" />
+    <Property Name="Observacao" Type="text" />
+    <Property Name="IdTipoPessoa" Type="int" Nullable="false" />
+    <Property Name="CPFCNPJ" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoAutorizacao">
+    <Key>
+      <PropertyRef Name="IdTipoAutorizacao" />
+    </Key>
+    <Property Name="IdTipoAutorizacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="IdTipoDocumento" />
+    </Key>
+    <Property Name="IdTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPessoa">
+    <Key>
+      <PropertyRef Name="IdTipoPessoa" />
+    </Key>
+    <Property Name="IdTipoPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="IdTipoUsuario" />
+    </Key>
+    <Property Name="IdTipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unidade">
+    <Key>
+      <PropertyRef Name="IdUnidade" />
+    </Key>
+    <Property Name="IdUnidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeUnidade" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdEndereco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnidadeFederativa">
+    <Key>
+      <PropertyRef Name="UF" />
+    </Key>
+    <Property Name="UF" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NomeEstado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdPessoaUsuario" />
+    </Key>
+    <Property Name="IdPessoaUsuario" Type="int" Nullable="false" />
+    <Property Name="IdUnidade" Type="int" Nullable="false" />
+    <Property Name="IdTipoUsuario" Type="int" Nullable="false" />
+    <Property Name="Senha" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Autorizacao_Documento">
+    <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+    <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="IdDocumento" />
+      </Principal>
+      <Dependent Role="Autorizacao">
+        <PropertyRef Name="IdDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Autorizacao_TipoAutorizacao">
+    <End Role="TipoAutorizacao" Type="Self.TipoAutorizacao" Multiplicity="1" />
+    <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAutorizacao">
+        <PropertyRef Name="IdTipoAutorizacao" />
+      </Principal>
+      <Dependent Role="Autorizacao">
+        <PropertyRef Name="IdTipoAutorizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Autorizacao_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdPessoaUsuario" />
+      </Principal>
+      <Dependent Role="Autorizacao">
+        <PropertyRef Name="IdPessoaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cidade_UnidadeFederativa">
+    <End Role="UnidadeFederativa" Type="Self.UnidadeFederativa" Multiplicity="1" />
+    <End Role="Cidade" Type="Self.Cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadeFederativa">
+        <PropertyRef Name="UF" />
+      </Principal>
+      <Dependent Role="Cidade">
+        <PropertyRef Name="UF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_Pessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_TipoDocumento">
+    <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="IdTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_Unidade">
+    <End Role="Unidade" Type="Self.Unidade" Multiplicity="1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unidade">
+        <PropertyRef Name="IdUnidade" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="IdUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documento_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdPessoaUsuario" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="IdPessoaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_Cidade">
+    <End Role="Cidade" Type="Self.Cidade" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="IdCidade" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="IdCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Endereco_Pessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_TipoPessoa">
+    <End Role="TipoPessoa" Type="Self.TipoPessoa" Multiplicity="1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPessoa">
+        <PropertyRef Name="IdTipoPessoa" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="IdTipoPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unidade_Endereco">
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="1" />
+    <End Role="Unidade" Type="Self.Unidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="IdEndereco" />
+      </Principal>
+      <Dependent Role="Unidade">
+        <PropertyRef Name="IdEndereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Pessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdPessoaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_TipoUsuario">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="IdTipoUsuario" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Unidade">
+    <End Role="Unidade" Type="Self.Unidade" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unidade">
+        <PropertyRef Name="IdUnidade" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdUnidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ArquivoDigitalTCCModelStoreContainer">
+    <EntitySet Name="Autorizacao" EntityType="Self.Autorizacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cidade" EntityType="Self.Cidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documento" EntityType="Self.Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAutorizacao" EntityType="Self.TipoAutorizacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPessoa" EntityType="Self.TipoPessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unidade" EntityType="Self.Unidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnidadeFederativa" EntityType="Self.UnidadeFederativa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Autorizacao_Documento" Association="Self.FK_Autorizacao_Documento">
+      <End Role="Documento" EntitySet="Documento" />
+      <End Role="Autorizacao" EntitySet="Autorizacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Autorizacao_TipoAutorizacao" Association="Self.FK_Autorizacao_TipoAutorizacao">
+      <End Role="TipoAutorizacao" EntitySet="TipoAutorizacao" />
+      <End Role="Autorizacao" EntitySet="Autorizacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Autorizacao_Usuario" Association="Self.FK_Autorizacao_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Autorizacao" EntitySet="Autorizacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cidade_UnidadeFederativa" Association="Self.FK_Cidade_UnidadeFederativa">
+      <End Role="UnidadeFederativa" EntitySet="UnidadeFederativa" />
+      <End Role="Cidade" EntitySet="Cidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_Pessoa" Association="Self.FK_Documento_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_TipoDocumento" Association="Self.FK_Documento_TipoDocumento">
+      <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_Unidade" Association="Self.FK_Documento_Unidade">
+      <End Role="Unidade" EntitySet="Unidade" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documento_Usuario" Association="Self.FK_Documento_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_Cidade" Association="Self.FK_Endereco_Cidade">
+      <End Role="Cidade" EntitySet="Cidade" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Endereco_Pessoa" Association="Self.FK_Endereco_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_TipoPessoa" Association="Self.FK_Pessoa_TipoPessoa">
+      <End Role="TipoPessoa" EntitySet="TipoPessoa" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unidade_Endereco" Association="Self.FK_Unidade_Endereco">
+      <End Role="Endereco" EntitySet="Endereco" />
+      <End Role="Unidade" EntitySet="Unidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Pessoa" Association="Self.FK_Usuario_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Unidade" Association="Self.FK_Usuario_Unidade">
+      <End Role="Unidade" EntitySet="Unidade" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

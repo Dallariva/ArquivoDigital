@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.TipoUsuario>
+
+@{
+    ViewBag.Title = "Tipo Usuário";
+}
+
+<h2>Tipo Usuário</h2>
+
+<p>
+    @Html.ActionLink("Novo Tipo Usuário", "Edit", new { id = 0})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Descrição</b>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new {id=item.IdTipoUsuario}) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.IdTipoUsuario }, new { @onclick = "return confirm('Confirma Exclusão?');" })
+        </td>
+    </tr>
+}
+
+</table>

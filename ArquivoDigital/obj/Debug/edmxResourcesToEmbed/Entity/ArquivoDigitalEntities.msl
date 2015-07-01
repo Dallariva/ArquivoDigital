@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArquivoDigitalTCCModelStoreContainer" CdmEntityContainer="ArquivoDigitalTCCEntities">
+    <EntitySetMapping Name="Autorizacao">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Autorizacao">
+        <MappingFragment StoreEntitySet="Autorizacao">
+          <ScalarProperty Name="IdAutorizacao" ColumnName="IdAutorizacao" />
+          <ScalarProperty Name="IdPessoaUsuario" ColumnName="IdPessoaUsuario" />
+          <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+          <ScalarProperty Name="IdTipoAutorizacao" ColumnName="IdTipoAutorizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cidade">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Cidade">
+        <MappingFragment StoreEntitySet="Cidade">
+          <ScalarProperty Name="IdCidade" ColumnName="IdCidade" />
+          <ScalarProperty Name="NomeCidade" ColumnName="NomeCidade" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documento">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Documento">
+        <MappingFragment StoreEntitySet="Documento">
+          <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="IdUnidade" ColumnName="IdUnidade" />
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="IdPessoaUsuario" ColumnName="IdPessoaUsuario" />
+          <ScalarProperty Name="NomeDocumento" ColumnName="NomeDocumento" />
+          <ScalarProperty Name="ArquivoBlob" ColumnName="ArquivoBlob" />
+          <ScalarProperty Name="Arquivo" ColumnName="Arquivo" />
+          <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+          <ScalarProperty Name="Observacao" ColumnName="Observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="IdCidade" ColumnName="IdCidade" />
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Pessoa">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Observacao" ColumnName="Observacao" />
+          <ScalarProperty Name="IdTipoPessoa" ColumnName="IdTipoPessoa" />
+          <ScalarProperty Name="CPFCNPJ" ColumnName="CPFCNPJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAutorizacao">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.TipoAutorizacao">
+        <MappingFragment StoreEntitySet="TipoAutorizacao">
+          <ScalarProperty Name="IdTipoAutorizacao" ColumnName="IdTipoAutorizacao" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumento">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.TipoDocumento">
+        <MappingFragment StoreEntitySet="TipoDocumento">
+          <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPessoa">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.TipoPessoa">
+        <MappingFragment StoreEntitySet="TipoPessoa">
+          <ScalarProperty Name="IdTipoPessoa" ColumnName="IdTipoPessoa" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuario">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidade">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Unidade">
+        <MappingFragment StoreEntitySet="Unidade">
+          <ScalarProperty Name="IdUnidade" ColumnName="IdUnidade" />
+          <ScalarProperty Name="NomeUnidade" ColumnName="NomeUnidade" />
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadeFederativa">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.UnidadeFederativa">
+        <MappingFragment StoreEntitySet="UnidadeFederativa">
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="NomeEstado" ColumnName="NomeEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ArquivoDigitalTCCModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdPessoaUsuario" ColumnName="IdPessoaUsuario" />
+          <ScalarProperty Name="IdUnidade" ColumnName="IdUnidade" />
+          <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

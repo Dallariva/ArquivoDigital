@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.Usuario>
+
+@{
+    ViewBag.Title = "Usuário";
+}
+
+<h2>Usuário</h2>
+
+<p>
+    @Html.ActionLink("Novo Usuário", "Edit")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPessoaUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUnidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTipoUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPessoaUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUnidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTipoUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdPessoaUsuario }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdPessoaUsuario })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.Pessoa>
+
+@{
+    ViewBag.Title = "Pessoa";
+}
+
+<h2>Pessoa</h2>
+
+<p>
+    @Html.ActionLink("Nova Pessoa", "Edit", new { id = 0})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Nome</b>
+        </th>
+        <th>
+            <b>E-mail</b>
+        </th>
+        <th>
+            <b>Telefone</b>
+        </th>
+        <th>
+            <b>Observação</b>
+        </th>
+        <th>
+            <b>Tipo Pessoa</b>
+        </th>
+        <th>
+            <b>CPF / CNPJ</b>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPessoa.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPFCNPJ)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdPessoa }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.IdPessoa }, new { @onclick = "return confirm('Confirma Exclusão?');" })
+        </td>
+    </tr>
+}
+
+</table>

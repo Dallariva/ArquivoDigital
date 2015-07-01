@@ -1,0 +1,94 @@
+﻿@model ArquivoDigital.Entity.Usuario
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    ViewBag.Title = @ViewBag.Titulo;
+}
+
+<h2>@ViewBag.Titulo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IdPessoaUsuario)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pessoa.IdPessoa, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pessoa.IdPessoa)
+                @Html.ValidationMessageFor(model => model.Pessoa.IdPessoa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdUnidade, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdUnidade")
+                @Html.ValidationMessageFor(model => model.IdUnidade)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdTipoUsuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdTipoUsuario")
+                @Html.ValidationMessageFor(model => model.IdTipoUsuario)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Senha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Senha)
+                @Html.ValidationMessageFor(model => model.Senha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b>Confirmar Senha</b>
+            <div class="col-md-10">
+                @Html.Password("Confirmacao")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" onclick="return validar()"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+<script>
+    function validar() {
+
+        if ($("#Senha").val() != $("#Confirmacao").val()) {
+            alert("Senhas não são iguais!");
+            return false;
+        }
+
+        if ($("#Senha").val().length < 8 || $("#Senha").val().length > 20) {
+            alert("Senha mais de 8 e menor que 20 caracteres!");
+            return false;
+        }
+
+        if ($("#Login").val().length < 3) {
+            alert("Login deverá maior que 3 caracteres!");
+            return false;
+        }
+
+        return true;
+    }
+</script>

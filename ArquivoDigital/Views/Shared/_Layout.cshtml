@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Arquivo Digital</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Arquivo Digital", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Documentos", "Index", "Documento")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class=""></span>Cadastro de Tipos<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipo Autorização", "Index", "TipoAutorizacao")</li>
+                            <li>@Html.ActionLink("Tipo Documento", "Index", "TipoDocumento")</li>
+                            <li>@Html.ActionLink("Tipo Pessoa", "Index", "TipoPessoa")</li>
+                            <li>@Html.ActionLink("Tipo Usuário", "Index", "TipoUsuario")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="">
+                            </span>Cadastro de Endereços<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Estados", "Index", "UnidadeFederativa")</li>
+                            <li>@Html.ActionLink("Cidade", "Index", "Cidade")</li>
+                            <li>@Html.ActionLink("Endereço", "Index", "Endereco")</li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="">
+                            </span>Cadastros<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Pessoa", "Index", "Pessoa")</li>
+                            <li>@Html.ActionLink("Unidade", "Index", "Unidade")</li>
+                            <li>@Html.ActionLink("Usuário", "Index", "Usuario")</li>
+                            <li>@Html.ActionLink("Autorização", "Index", "Autorizacao")</li>
+                        </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Arquivo Digital</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

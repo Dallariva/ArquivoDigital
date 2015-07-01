@@ -1,0 +1,45 @@
+﻿@model ArquivoDigital.Entity.Unidade
+
+@{
+    ViewBag.Title = @ViewBag.Titulo ;
+}
+
+<h2>@ViewBag.Titulo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Unidade</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IdUnidade)
+            
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeUnidade, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeUnidade)
+                @Html.ValidationMessageFor(model => model.NomeUnidade)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdEndereco, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdEndereco")
+                @Html.ValidationMessageFor(model => model.IdEndereco)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

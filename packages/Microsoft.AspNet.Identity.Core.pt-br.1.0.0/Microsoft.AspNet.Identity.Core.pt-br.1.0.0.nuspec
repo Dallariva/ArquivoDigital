@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.Identity.Core.pt-br</id>
+    <version>1.0.0</version>
+    <title>Recursos do Microsoft ASP.NET Identity Core em português do Brasil</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_PTB.htm</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Este pacote contém os assemblies satélite em português do Brasil para as Bibliotecas do ASP.NET Identity Core.</description>
+    <summary>Recursos em português do Brasil do pacote Microsoft.AspNet.Identity.Core</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>pt-br</language>
+    <tags>Identity Membership</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Identity.Core" version="[1.0.0]" />
+    </dependencies>
+  </metadata>
+</package>

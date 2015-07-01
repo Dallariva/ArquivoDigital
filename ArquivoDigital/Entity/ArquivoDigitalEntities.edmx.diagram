@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93e8336fb93e43c8b130ad8633d2711c" Name="Diagram1">
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Autorizacao" Width="1.5" PointX="15" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Cidade" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Documento" Width="1.5" PointX="9.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Endereco" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Pessoa" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.TipoAutorizacao" Width="1.5" PointX="12.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.TipoDocumento" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.TipoPessoa" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.TipoUsuario" Width="1.5" PointX="10.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Unidade" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.UnidadeFederativa" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArquivoDigitalTCCModel.Usuario" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Autorizacao_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Autorizacao_TipoAutorizacao" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Autorizacao_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Cidade_UnidadeFederativa" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Endereco_Cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Documento_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Documento_TipoDocumento" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Documento_Unidade" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Documento_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Endereco_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Unidade_Endereco" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Pessoa_TipoPessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Usuario_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Usuario_TipoUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ArquivoDigitalTCCModel.FK_Usuario_Unidade" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

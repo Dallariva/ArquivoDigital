@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ArquivoDigital.Entity.Endereco>
+
+@{
+    ViewBag.Title = "Endereços";
+}
+
+<h2>Endereços</h2>
+
+<p>
+    @Html.ActionLink("Novo Endereço", "Edit", new { id = 0})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <b>Logradouro</b>
+        </th>
+        <th>
+            <b>Complemento</b>
+        </th>
+        <th>
+            <b>Número</b>
+        </th>
+        <th>
+            <b>CEP</b>
+        </th>
+        <th>
+            <b>Bairro</b>
+        </th>
+        <th>
+            <b>Cidade</b>
+        </th>
+        <th>
+            <b>Estado</b>
+        </th>
+        <th>
+            <b>Nome da Pessoa</b>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logradouro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Complemento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidade.NomeCidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidade.UnidadeFederativa.NomeEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pessoa.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdEndereco }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdEndereco }, new { @onclick = "return confirm('Confirma Exclusão?');" })
+        </td>
+    </tr>
+}
+
+</table>
